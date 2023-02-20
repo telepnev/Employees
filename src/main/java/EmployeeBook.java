@@ -1,7 +1,7 @@
 public class EmployeeBook {
     private final Employee[] employees;
     private int size;
-    private String man = null;
+
 
 
     public EmployeeBook() {
@@ -64,7 +64,8 @@ public class EmployeeBook {
     }
 
     public void getMaximumSalary() {
-        int maxSalary = -1;
+        String man = null;
+        double maxSalary = -1;
         for (Employee empl : employees) {
             if (empl != null) {
                 if (empl.getSalary() > maxSalary) {
@@ -77,7 +78,8 @@ public class EmployeeBook {
     }
 
     public void getMinimumSalary() {
-        long minSalary = Long.MAX_VALUE;
+        String man = null;
+        double minSalary = Long.MAX_VALUE;
         for (Employee empl : employees) {
             if (empl != null) {
                 if (empl.getSalary() < minSalary) {
@@ -89,12 +91,14 @@ public class EmployeeBook {
         System.out.println("Минимальная зарплата состовляет = " + minSalary + " у сотрудника " + man);
     }
 
-    public void increaseSalaryByPercentage(double salary) {
+    public void increaseSalaryByPercentage(double percent) {
+        String man = null;
         double newSalary = 0;
-        double newPercent = salary;
+        double newPercent = percent;
         for (Employee empl : employees) {
             if (empl != null) {
                 newSalary = ((empl.getSalary() * newPercent) / 100) + empl.getSalary();
+                empl.setSalary(newSalary);
                 man = empl.getFirstName() + " " + empl.getLastName();
             }
             System.out.println("Новая зарплата сотрутника " + man + " состовляет = " + newSalary);
@@ -102,7 +106,8 @@ public class EmployeeBook {
     }
 
     public void getDepartmentInfoByMinimumSalary(int numDepartment) {
-        long minSalary = Long.MAX_VALUE;
+        String man = null;
+        double minSalary = Long.MAX_VALUE;
         for (Employee empl : employees) {
             if (empl != null && empl.getDepartment() == numDepartment) {
                 if (empl.getSalary() < minSalary) {
@@ -115,7 +120,8 @@ public class EmployeeBook {
     }
 
     public void getDepartmentInfoByMaximumSalary(int numDepartment) {
-        int maxSalary = -1;
+        String man = null;
+        double maxSalary = -1;
         for (Employee empl : employees) {
             if (empl != null && empl.getDepartment() == numDepartment) {
                 if (empl.getSalary() > maxSalary) {
@@ -147,7 +153,7 @@ public class EmployeeBook {
         return size;
     }
 
-    public void getDepartmentInfoByAverageSalary(int numDepartment) {
+    public void getAverageSalaryByDepartment(int numDepartment) {
         double sum = 0;
         for (Employee empl : employees) {
             if (empl != null && empl.getDepartment() == numDepartment) {
@@ -158,11 +164,13 @@ public class EmployeeBook {
     }
 
     public void getDepartmentInfoAfterIncreaseSalaryByPercentage(int numDepartment, double percent) {
+        String man = null;
         double newSalary = 0;
         double newPercent = percent;
         for (Employee empl : employees) {
             if (empl != null && empl.getDepartment() == numDepartment) {
                 newSalary = ((empl.getSalary() * newPercent) / 100) + empl.getSalary();
+                empl.setSalary(newSalary);
                 man = empl.getFirstName() + " " + empl.getLastName();
                 System.out.println("Новая зарплата сотрутника " + man + " состовляет = " + newSalary);
             }
@@ -181,6 +189,7 @@ public class EmployeeBook {
     }
 
     public void findAllEmployeesLessThanSalary(double salary) {
+        String man = null;
         for (Employee empl : employees) {
             if (empl != null && empl.getSalary() < salary) {
                 man = empl.getLastName() + " " + empl.getFirstName() + " " + empl.getMidleName();
@@ -190,6 +199,7 @@ public class EmployeeBook {
     }
 
     public void findAllEmployeesGreaterThanSalary(double salary) {
+        String man = null;
         for (Employee empl : employees) {
             if (empl != null && empl.getSalary() > salary) {
                 man = empl.getLastName() + " " + empl.getFirstName() + " " + empl.getMidleName();
@@ -199,6 +209,7 @@ public class EmployeeBook {
     }
 
     public void removeEmployee(String lastEmployee) {
+        String man = null;
         for (int i = 0; i < employees.length; i++) {
             man = employees[i].getLastName() + " " + employees[i].getFirstName() + " " + employees[i].getMidleName();
             if (employees[i] != null && man.equals(lastEmployee)) {
@@ -213,14 +224,12 @@ public class EmployeeBook {
         }
     }
 
-    public String getFioEmployee() {
-        String fio = null;
+    public void getFioEmployee() {
         for (Employee empl : employees) {
             if (empl != null) {
-                fio = empl.getLastName() + " " + empl.getFirstName() + " " + empl.getMidleName();
+                System.out.println(empl.getLastName() + " " + empl.getFirstName() + " " + empl.getMidleName());
             }
         }
-        return fio;
     }
 
     public void removeEmployee(int id) {
@@ -238,6 +247,7 @@ public class EmployeeBook {
     }
 
     public void changeEmployeeByFio(String fioEmployee, int setSalary, int setDepartment) {
+        String man = null;
         for (int i = 0; i < employees.length; i++) {
             man = employees[i].getLastName() + " " + employees[i].getFirstName() + " " + employees[i].getMidleName();
             if (employees[i] != null && man.equals(fioEmployee)) {
@@ -257,5 +267,5 @@ public class EmployeeBook {
             }
         }
     }
-    // Добавлю тут ченить для отправки "длжлыажыалж
+
 }

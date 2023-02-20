@@ -3,7 +3,7 @@ public class Employee {
     private final String midleName;
     private final String lastName;
     private int department;
-    private int salary;
+    private double salary;
     private int id ;
     public static int count;
 
@@ -15,6 +15,7 @@ public class Employee {
         this.department = department;
         this.salary = salary;
         this.id = 1 + count++;
+//        Тут добавил 1 что бы Id Наченалось не с нуля, а с одного
     }
 
     public String getFirstName() {
@@ -33,7 +34,7 @@ public class Employee {
         return department;
     }
 
-    public int getSalary() {
+    public double getSalary() {
         return salary;
     }
 
@@ -45,7 +46,7 @@ public class Employee {
         this.department = department;
     }
 
-    public void setSalary(int salary) {
+    public void setSalary(double salary) {
         this.salary = salary;
     }
 
@@ -58,5 +59,4 @@ public class Employee {
                 + ", зарплата : " + salary
                 + ", ID сотрудника - " + id;
     }
-    // Добавлю тут ченить для отправки "длжлыажыалж
 }
