@@ -15,7 +15,6 @@ public class Employee {
         this.department = department;
         this.salary = salary;
         this.id = 1 + count++;
-//        Тут добавил 1 что бы Id Наченалось не с нуля, а с одного
     }
 
     public String getFirstName() {
